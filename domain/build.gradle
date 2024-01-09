@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'com'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+}
+
+test {
+    useJUnitPlatform()
+}

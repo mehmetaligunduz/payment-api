@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: payment-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/payment-api
+    username: postgres
+    password: admin
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+
+craftgate:
+  apiKey: "sandbox-YEhueLgomBjqsnvBlWVVuFsVhlvJlMHE"
+  secretKey: "sandbox-tBdcdKVGmGupzfaWcULcwDLMoglZZvTz"
+  baseUrl: "https://sandbox-api.craftgate.io"
