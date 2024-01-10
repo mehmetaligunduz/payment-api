@@ -22,6 +22,7 @@ public class PaymentUseCase implements UseCase {
 
     private Double walletPrice;
 
+    @Builder.Default
     private int installment = 1;
 
     private Currency currency = Currency.TRY;

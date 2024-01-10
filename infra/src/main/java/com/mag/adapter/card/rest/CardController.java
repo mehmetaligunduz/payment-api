@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class CardController {
 
     private final VoidUseCaseHandler<StoreCardUseCase> storeCardVoidUseCaseHandler;
+
     private final VoidUseCaseHandler<DeleteCardUseCase> deleteCardVoidUseCaseHandler;
 
     @PostMapping

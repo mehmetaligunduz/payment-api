@@ -17,7 +17,9 @@ public class PaymentController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void checkout(@RequestBody PaymentRequest paymentRequest) {
+
         paymentVoidUseCaseHandler.handle(paymentRequest.toUseCase());
+
     }
 
 }

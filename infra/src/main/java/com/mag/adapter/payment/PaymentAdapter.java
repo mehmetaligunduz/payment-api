@@ -1,6 +1,7 @@
 package com.mag.adapter.payment;
 
 import com.mag.port.payment.PaymentPort;
+import com.mag.port.payment.model.PaymentModel;
 import com.mag.port.payment.usecase.PaymentUseCase;
 import io.craftgate.Craftgate;
 import io.craftgate.model.Currency;
@@ -22,12 +23,19 @@ public class PaymentAdapter implements PaymentPort {
     private final Craftgate craftgate;
 
     @Override
-    public void checkout(PaymentUseCase useCase) {
+    public PaymentModel checkout(PaymentUseCase useCase) {
 
         final CreatePaymentRequest paymentRequest = generateCreatePaymentRequest(useCase);
 
-        PaymentResponse paymentResponse = craftgate.payment().createPayment(paymentRequest);
+        final PaymentResponse paymentResponse = craftgate.payment().createPayment(paymentRequest);
+
         log.info("Payment retrieved - id:" + paymentResponse.getId());
+
+        return
+                new PaymentModel(
+                        paymentResponse.getId(),
+                        paymentResponse.getConversationId(),
+                        paymentResponse.getPrice());
     }
 
     private static CreatePaymentRequest generateCreatePaymentRequest(PaymentUseCase useCase) {

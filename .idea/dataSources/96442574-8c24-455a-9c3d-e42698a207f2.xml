@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.48">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1646421</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1646426</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
       <StartupTime>1704206323</StartupTime>
       <TimeZones>true ACDT
@@ -816,7 +816,7 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>1646421</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1646426</IntrospectionStateNumber>
       <ObjectId>122641</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -898,7 +898,7 @@ false Zulu
     <schema id="25" parent="6" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1646421</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1646426</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -924,7 +924,7 @@ false Zulu
     <sequence id="29" parent="25" name="cards_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>122642</ObjectId>
-      <SequenceIdentity>1(2)</SequenceIdentity>
+      <SequenceIdentity>1(3)</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1646418</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -935,7 +935,13 @@ false Zulu
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="31" parent="30" name="id">
+    <table id="31" parent="25" name="payment">
+      <ObjectId>122651</ObjectId>
+      <StateNumber>1646424</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="32" parent="30" name="id">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;cards_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -944,35 +950,35 @@ false Zulu
       <SequenceId>122642</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="32" parent="30" name="alias">
+    <column id="33" parent="30" name="alias">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1646418</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="33" parent="30" name="last_four_digit">
+    <column id="34" parent="30" name="last_four_digit">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1646418</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="34" parent="30" name="token">
+    <column id="35" parent="30" name="token">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1646418</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="35" parent="30" name="user_key">
+    <column id="36" parent="30" name="user_key">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>1646418</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="36" parent="30" name="cards_pkey">
+    <index id="37" parent="30" name="cards_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>122649</ObjectId>
@@ -981,12 +987,54 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="37" parent="30" name="cards_pkey">
+    <key id="38" parent="30" name="cards_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>122650</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1646418</StateNumber>
       <UnderlyingIndexId>122649</UnderlyingIndexId>
+    </key>
+    <column id="39" parent="31" name="id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1646424</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="40" parent="31" name="conversationid">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1646424</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="41" parent="31" name="created_at">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>1646424</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="42" parent="31" name="price">
+      <DasType>numeric(38,2 digit)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>1646424</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <index id="43" parent="31" name="payment_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>122656</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1646424</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="44" parent="31" name="payment_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>122657</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1646424</StateNumber>
+      <UnderlyingIndexId>122656</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
