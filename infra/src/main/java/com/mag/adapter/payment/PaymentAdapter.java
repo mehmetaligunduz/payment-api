@@ -1,5 +1,7 @@
 package com.mag.adapter.payment;
 
+import com.mag.adapter.payment.exception.PaymentFailedException;
+import com.mag.common.exception.ExceptionEnum;
 import com.mag.port.payment.PaymentPort;
 import com.mag.port.payment.model.PaymentModel;
 import com.mag.port.payment.usecase.PaymentUseCase;
@@ -25,17 +27,23 @@ public class PaymentAdapter implements PaymentPort {
     @Override
     public PaymentModel checkout(PaymentUseCase useCase) {
 
-        final CreatePaymentRequest paymentRequest = generateCreatePaymentRequest(useCase);
+        try {
 
-        final PaymentResponse paymentResponse = craftgate.payment().createPayment(paymentRequest);
+            final CreatePaymentRequest paymentRequest = generateCreatePaymentRequest(useCase);
 
-        log.info("Payment retrieved - id:" + paymentResponse.getId());
+            final PaymentResponse paymentResponse = craftgate.payment().createPayment(paymentRequest);
 
-        return
-                new PaymentModel(
-                        paymentResponse.getId(),
-                        paymentResponse.getConversationId(),
-                        paymentResponse.getPrice());
+            log.info("Payment retrieved - id:" + paymentResponse.getId());
+
+            return
+                    new PaymentModel(
+                            paymentResponse.getId(),
+                            paymentResponse.getConversationId(),
+                            paymentResponse.getPrice());
+
+        } catch (Exception e) {
+            throw new PaymentFailedException(ExceptionEnum.CHECKOUT_PAYMENT_RETRIEVE_ERROR, e.getMessage());
+        }
     }
 
     private static CreatePaymentRequest generateCreatePaymentRequest(PaymentUseCase useCase) {
@@ -43,7 +51,6 @@ public class PaymentAdapter implements PaymentPort {
                 .builder()
                 .price(BigDecimal.valueOf(useCase.getPrice()))
                 .paidPrice(BigDecimal.valueOf(useCase.getPrice()))
-                .walletPrice(BigDecimal.valueOf(0))
                 .installment(useCase.getInstallment())
                 .conversationId(useCase.getConversationId())
                 .card(Card.builder()

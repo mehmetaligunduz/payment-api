@@ -1,10 +1,13 @@
 package com.mag.adapter.payment.rest;
 
 import com.mag.adapter.payment.dto.PaymentRequest;
-import com.mag.common.usecase.handler.VoidUseCaseHandler;
+import com.mag.adapter.payment.rest.dto.PaymentResponse;
+import com.mag.common.usecase.handler.UseCaseHandler;
+import com.mag.port.payment.model.PaymentModel;
 import com.mag.port.payment.usecase.PaymentUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,14 +15,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/payment")
 public class PaymentController {
 
-    private final VoidUseCaseHandler<PaymentUseCase> paymentVoidUseCaseHandler;
+    private final UseCaseHandler<PaymentModel, PaymentUseCase> paymentUseCaseHandler;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void checkout(@RequestBody PaymentRequest paymentRequest) {
+    public ResponseEntity<PaymentResponse> checkout(@RequestBody PaymentRequest paymentRequest) {
 
-        paymentVoidUseCaseHandler.handle(paymentRequest.toUseCase());
+        final PaymentModel handle = paymentUseCaseHandler.handle(paymentRequest.toUseCase());
 
+        return ResponseEntity.ok(PaymentResponse.toResponse(handle));
     }
 
 }

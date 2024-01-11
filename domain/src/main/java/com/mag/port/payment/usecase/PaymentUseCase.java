@@ -20,7 +20,8 @@ public class PaymentUseCase implements UseCase {
 
     private Double paidPrice = getPrice();
 
-    private Double walletPrice;
+    @Builder.Default
+    private Double walletPrice = 0d;
 
     @Builder.Default
     private int installment = 1;
