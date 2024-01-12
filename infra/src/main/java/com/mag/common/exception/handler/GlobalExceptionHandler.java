@@ -19,9 +19,9 @@ public class GlobalExceptionHandler {
 
         log.error("Exception occurred, {}", getExceptionDetailMessage(exception.getArgs()));
 
-        var errorEnum = exception.getError();
+        var errorEnum = exception.getException();
 
-        final var response = prepareResponseModel(exception.getError(), exception);
+        final var response = prepareResponseModel(exception.getException(), exception);
 
         return new ResponseEntity<>(response, errorEnum.getStatus());
 

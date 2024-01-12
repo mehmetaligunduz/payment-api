@@ -2,7 +2,6 @@ package com.mag.port.card.usecase.handler;
 
 import com.mag.common.DomainComponent;
 import com.mag.common.usecase.handler.VoidUseCaseHandler;
-import com.mag.port.card.CardDataPort;
 import com.mag.port.card.CardPort;
 import com.mag.port.card.usecase.DeleteCardUseCase;
 
@@ -10,16 +9,14 @@ import com.mag.port.card.usecase.DeleteCardUseCase;
 public class DeleteCardUseCaseHandler implements VoidUseCaseHandler<DeleteCardUseCase> {
 
     private final CardPort cardPort;
-    private final CardDataPort cardDataPort;
 
-    public DeleteCardUseCaseHandler(CardPort cardPort, CardDataPort cardDataPort) {
+
+    public DeleteCardUseCaseHandler(CardPort cardPort) {
         this.cardPort = cardPort;
-        this.cardDataPort = cardDataPort;
     }
 
     @Override
     public void handle(DeleteCardUseCase useCase) {
-        cardDataPort.deleteCard(useCase.getUserKey(), useCase.getToken());
-        cardPort.deleteCard(useCase);
+        cardPort.deleteCard(useCase.getCardId());
     }
 }

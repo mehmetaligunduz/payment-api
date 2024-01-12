@@ -6,6 +6,4 @@ public interface CardDataPort {
 
     void storeCard(CardModel model);
 
-    void deleteCard(String userKey, String token);
-
 }

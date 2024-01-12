@@ -9,7 +9,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class BaseRuntimeException extends RuntimeException {
 
-    private final ExceptionEnum error;
+    private final ExceptionEnum exception;
 
     private final String[] args;
 

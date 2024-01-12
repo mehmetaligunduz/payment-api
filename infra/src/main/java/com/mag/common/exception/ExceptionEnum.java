@@ -14,7 +14,9 @@ public enum ExceptionEnum {
 
     CARD_ALREADY_DELETED("0003", "card already deleted", HttpStatus.BAD_REQUEST),
 
-    CHECKOUT_PAYMENT_RETRIEVE_ERROR("0004", "checkout payment retrieve error", HttpStatus.INTERNAL_SERVER_ERROR);
+    CHECKOUT_PAYMENT_RETRIEVE_ERROR("0004", "checkout payment retrieve error", HttpStatus.INTERNAL_SERVER_ERROR),
+
+    CRAFTGATE_EXTERNAL_ERROR("1001", "payment gateway error", HttpStatus.INTERNAL_SERVER_ERROR);
 
     private final String code;
 

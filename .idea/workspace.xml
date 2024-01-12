@@ -6,10 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b3b9c56a-a767-4f71-b827-a1f742a00f03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/payment/usecase/PaymentUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/payment/usecase/PaymentUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/payment/usecase/handler/PaymentUseCaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/payment/usecase/handler/PaymentUseCaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/payment/PaymentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/payment/PaymentAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/payment/rest/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/payment/rest/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/CardDataPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/CardDataPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/CardPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/CardPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/usecase/DeleteCardUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/usecase/DeleteCardUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/usecase/handler/DeleteCardUseCaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/mag/port/card/usecase/handler/DeleteCardUseCaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardDataAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardDataAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/jpa/entity/CardEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/jpa/entity/CardEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/jpa/repository/CardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/jpa/repository/CardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/rest/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/rest/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/rest/dto/DeleteCardRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/BaseRuntimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/BaseRuntimeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/ExceptionEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/ExceptionEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/main/java/com/mag/common/exception/handler/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +62,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Enum" />
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -107,6 +116,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.mag.adapter.card.jpa.entity" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ehumneg\IdeaProjects\payment-api\infra\src\main\java\com\mag" />
     </key>
@@ -242,7 +254,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704296102244</updated>
-      <workItem from="1704296103174" duration="47157000" />
+      <workItem from="1704296103174" duration="56273000" />
     </task>
     <servers />
   </component>
@@ -254,17 +266,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardAdapter.java</url>
-          <line>21</line>
+          <line>32</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/rest/CardController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/infra/src/main/java/com/mag/adapter/card/CardAdapter.java</url>
-          <line>30</line>
+          <line>41</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -31,4 +31,7 @@ public class CardEntity {
     @Column(name = "alias", nullable = false)
     private String alias;
 
+    @Enumerated(EnumType.STRING)
+    private CardStatus status;
+
 }

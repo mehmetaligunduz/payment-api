@@ -1,6 +1,5 @@
 package com.mag.adapter.card.rest;
 
-import com.mag.adapter.card.rest.dto.DeleteCardRequest;
 import com.mag.adapter.card.rest.dto.StoreCardRequest;
 import com.mag.common.usecase.handler.VoidUseCaseHandler;
 import com.mag.port.card.usecase.DeleteCardUseCase;
@@ -26,11 +25,11 @@ public class CardController {
 
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{cardId}/delete-card")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCard(@RequestBody DeleteCardRequest deleteCardRequest) {
+    public void deleteCard(@PathVariable Long cardId) {
 
-        deleteCardVoidUseCaseHandler.handle(deleteCardRequest.toUseCase());
+        deleteCardVoidUseCaseHandler.handle(new DeleteCardUseCase(cardId));
 
     }
 }

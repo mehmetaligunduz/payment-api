@@ -12,8 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class DeleteCardUseCase implements UseCase {
 
-    private String userKey;
-
-    private String token;
+    private Long cardId;
 
 }
